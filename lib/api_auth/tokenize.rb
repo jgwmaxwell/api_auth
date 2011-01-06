@@ -12,13 +12,13 @@ module ApiAuth
 			@api_secret = options[:api_secret]
 		end
 		
-		def generate_token
+		def generate_token(api_request)
 			start_time = Time.now
-				raw = @api_secret
-				hash = Digest::SHA2.new << raw
+				raw = api_request + @api_secret
+				hash = {}
+				hash[:code] = Digest::SHA2.new << raw
 			end_time = Time.now
-			(end_time - start_time) * 1000
-			#@tokenize_this + ActiveSupport::SecureRandom.base64(44).tr('+/=', 'xyz')
+			hash[:time] = (end_time - start_time) * 1000
 		end
 		
 		def validate_token
