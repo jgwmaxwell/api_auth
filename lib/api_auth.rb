@@ -1,11 +1,7 @@
 require 'active_support/dependencies'
+require 'api_auth/tokenize'
 
 module ApiAuth
 
-	module Tokenize
-		
-		def self.generate_token
-			ActiveSupport::SecureRandom.base64(44).tr('+/=', 'xyz')
-		end
-	end
+
 end
