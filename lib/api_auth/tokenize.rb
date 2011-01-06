@@ -1,3 +1,4 @@
+require 'action_controller/request'
 require 'active_support/dependencies'
 require 'digest/sha2'
 
@@ -25,6 +26,7 @@ module ApiAuth
 	end
 	
 	class Validator < ActionController::AbstractRequest
+		include ActionController::AbstractRequest
 		def validate_token
 			raw = request.body
 		end
