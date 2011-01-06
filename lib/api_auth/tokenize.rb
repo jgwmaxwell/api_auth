@@ -1,6 +1,5 @@
 require 'active_support/dependencies'
 require 'digest/sha2'
-require 'action_controller/abstract_request'
 
 module ApiAuth	
 	class Tokenize
@@ -22,7 +21,10 @@ module ApiAuth
 			hash[:time] = (end_time - start_time) * 1000
 			hash
 		end
-		
+
+	end
+	
+	class Validator < ActionController::AbstractRequest
 		def validate_token
 			raw = request.body
 		end
