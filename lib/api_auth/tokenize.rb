@@ -1,6 +1,6 @@
 module ApiAuth	
-	module Tokenize
-		def self.initialize(options={})
+	class Tokenize
+		def initialize(options={})
 			@tokenize_this = options[:tokenize_this]
 		end
 		
