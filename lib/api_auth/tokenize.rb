@@ -1,5 +1,6 @@
 require 'active_support/dependencies'
 require 'digest/sha2'
+require 'action_controller/abstract_request'
 
 module ApiAuth	
 	class Tokenize
@@ -23,7 +24,7 @@ module ApiAuth
 		end
 		
 		def validate_token
-			
+			raw = request.body
 		end
 	end
 end
