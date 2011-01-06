@@ -1,4 +1,5 @@
-require 'diigest/sha2'
+require 'active_support/dependencies'
+require 'digest/sha2'
 
 module ApiAuth	
 	class Tokenize
