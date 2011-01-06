@@ -13,10 +13,11 @@ module ApiAuth
 		end
 		
 		def generate_token
-			self.benchmark("generate SHA2") do
+			start_time = Time.now
 				raw = @api_secret
 				hash = Digest::SHA2.new << raw
-			end
+			end_time = Time.now
+			(end_time - start_time) * 1000
 			#@tokenize_this + ActiveSupport::SecureRandom.base64(44).tr('+/=', 'xyz')
 		end
 		
