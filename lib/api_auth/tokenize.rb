@@ -19,6 +19,7 @@ module ApiAuth
 				hash[:code] = Digest::SHA2.new << raw
 			end_time = Time.now
 			hash[:time] = (end_time - start_time) * 1000
+			hash
 		end
 		
 		def validate_token
