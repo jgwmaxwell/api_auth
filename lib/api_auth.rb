@@ -1,7 +1,11 @@
+require 'active_support/dependencies'
+
 module ApiAuth
 
-	def self.authenticate(token)
-		token == "hello" ? true : false
+	module Tokenize
+		
+		def self.generate_token
+			ActiveSupport::SecureRandom.base64(44).tr('+/=', 'xyz')
+		end
 	end
-
 end
